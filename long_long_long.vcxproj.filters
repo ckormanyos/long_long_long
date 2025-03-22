@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{468a9647-c634-4037-89c7-ba2e5c1e4d3a}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Source Files\test">
+      <UniqueIdentifier>{20687d93-af62-498a-8f72-870a207ac405}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\math">
+      <UniqueIdentifier>{2ac1bdc1-eb10-4a49-ba08-52577b88812a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\math\long_long_long">
+      <UniqueIdentifier>{623bd22c-72bc-4c9c-88e5-714aef8edf61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\math\long_long_long\detail">
+      <UniqueIdentifier>{1790df22-808c-4fbd-ac16-f4084f40aa9d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="test\test.cpp">
+      <Filter>Source Files\test</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="math\long_long_long\long_long_long_io.h">
+      <Filter>Source Files\math\long_long_long</Filter>
+    </ClInclude>
+    <ClInclude Include="math\long_long_long\signed_long_long_long.h">
+      <Filter>Source Files\math\long_long_long</Filter>
+    </ClInclude>
+    <ClInclude Include="math\long_long_long\unsigned_long_long_long.h">
+      <Filter>Source Files\math\long_long_long</Filter>
+    </ClInclude>
+    <ClInclude Include="math\long_long_long\detail\long_long_long_detail.h">
+      <Filter>Source Files\math\long_long_long\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="math\long_long_long\long_long_long.h">
+      <Filter>Source Files\math\long_long_long</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
