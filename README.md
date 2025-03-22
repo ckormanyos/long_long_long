@@ -7,9 +7,11 @@ This is a legacy project that preserves an old work.
 New designes should use (`ckormanyos/wide-integer`)[https://github.com/ckormanyos/wide-integer]
 or `boost::multiprecision` or similar.
 
-Use a C++ template to create a `long_long_long` unsigned integer such as a drop-in replacement
-for `uint128_t`. The `unsigned_long_long_long` and `signed_long_long_long` are
-located in `namespace` `math::lll`.
+Use the C++ templates `unsigned_long_long_long` and `signed_long_long_long`
+to create unsigned or signed _long_ _long_ _long_ integers such as a drop-in replacement
+for `uint128_t` (see sample below).
+
+The `unsigned_long_long_long` and `signed_long_long_long` are located in `namespace` `math::lll`.
 
 ```cpp
 auto main() -> int
