@@ -54,7 +54,7 @@ namespace
 
     for(unsigned bpos {UINT8_C(0) }; bpos < BitCount; ++bpos)
     {
-      u |= uint128_type { uint128_type { uniform_bit_range(engine) } << bpos };
+      u |= uint128_type { uint128_type { uniform_bit_range(engine) } << static_cast<int>(bpos) };
     }
 
     return u;
@@ -526,7 +526,7 @@ LONG_LONG_LONG_TEST_CASE(test_unsigned_long_long_long)
 
   for(std::uint_fast32_t i { UINT32_C(0) }; i < test_case_count; ++i)
   {
-    const int shift(::uint128_generator<7U>().to_uint32());
+    const int shift { static_cast<int>(::uint128_generator<7U>().to_uint32()) };
 
     const uint128_type a(::uint128_generator<128U>());
     const uint128_type b(a << shift);
@@ -544,7 +544,7 @@ LONG_LONG_LONG_TEST_CASE(test_unsigned_long_long_long)
 
   for(std::uint_fast32_t i { UINT32_C(0) }; i < test_case_count; ++i)
   {
-    const int shift(::uint128_generator<7U>().to_uint32());
+    const int shift { static_cast<int>(::uint128_generator<7U>().to_uint32()) };
 
     const uint128_type a(::uint128_generator<128U>());
     const uint128_type b(a >> shift);
