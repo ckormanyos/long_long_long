@@ -40,6 +40,7 @@ jobs:
           git submodule update --init libs/iterator
           git submodule update --init libs/lexical_cast
           git submodule update --init libs/math
+          git submodule update --init libs/move
           git submodule update --init libs/mp11
           git submodule update --init libs/mpl
           git submodule update --init libs/multiprecision
