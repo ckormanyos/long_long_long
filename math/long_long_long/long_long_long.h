@@ -8,7 +8,6 @@
 #ifndef LONG_LONG_LONG_2025_03_22_H
   #define LONG_LONG_LONG_2025_03_22_H
 
-
   #include <math/long_long_long/long_long_long_io.h>
   #include <math/long_long_long/signed_long_long_long.h>
 

@@ -1,27 +1,32 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 12
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35728.132
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "long_long_long", "long_long_long.vcxproj", "{3FF798B1-C4CC-42F5-8FBF-6EF1B6D402EE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{C360E4E8-163D-463F-8700-75A0E9C9A1DC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{06201EFC-7434-4141-AC4F-6EBAD106C845}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\long_long_long.yml = .github\workflows\long_long_long.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Win32 = Debug|Win32
 		Debug|x64 = Debug|x64
-		Release|Win32 = Release|Win32
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3FF798B1-C4CC-42F5-8FBF-6EF1B6D402EE}.Debug|Win32.ActiveCfg = Debug|Win32
-		{3FF798B1-C4CC-42F5-8FBF-6EF1B6D402EE}.Debug|Win32.Build.0 = Debug|Win32
 		{3FF798B1-C4CC-42F5-8FBF-6EF1B6D402EE}.Debug|x64.ActiveCfg = Debug|x64
 		{3FF798B1-C4CC-42F5-8FBF-6EF1B6D402EE}.Debug|x64.Build.0 = Debug|x64
-		{3FF798B1-C4CC-42F5-8FBF-6EF1B6D402EE}.Release|Win32.ActiveCfg = Release|Win32
-		{3FF798B1-C4CC-42F5-8FBF-6EF1B6D402EE}.Release|Win32.Build.0 = Release|Win32
 		{3FF798B1-C4CC-42F5-8FBF-6EF1B6D402EE}.Release|x64.ActiveCfg = Release|x64
 		{3FF798B1-C4CC-42F5-8FBF-6EF1B6D402EE}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{06201EFC-7434-4141-AC4F-6EBAD106C845} = {C360E4E8-163D-463F-8700-75A0E9C9A1DC}
 	EndGlobalSection
 EndGlobal
