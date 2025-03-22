@@ -6,7 +6,7 @@
 //
 
 // cd /mnt/c/Users/ckorm/Documents/Ks/PC_Software/NumericalPrograms/ExtendedNumberTypes/long_long_long
-// g++ -O3 -std=c++20 -Wall -Wextra -Wpedantic -Wconversion -Wsign-conversion -O3 -I. -I/mnt/c/boost/boost_1_87_0 test/test.cpp -o test.exe
+// g++ -O3 -std=c++20 -Wall -Wextra -Wconversion -Wsign-conversion -O3 -I. -I/mnt/c/boost/boost_1_87_0 test/test.cpp -o test.exe
 
 #include <math/long_long_long/long_long_long.h>
 

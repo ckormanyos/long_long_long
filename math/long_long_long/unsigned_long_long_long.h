@@ -79,17 +79,20 @@
            typename UnsignedLargeType = typename ::math::lll::detail::integer_type_helper<std::numeric_limits<UnsignedSmallType>::digits * 2>::exact_unsigned_type>
   class unsigned_long_long_long
   {
-  public:
+  protected:
     // Type definitions for types used in internal calculations.
-    typedef UnsignedSmallType unsigned_small_type;
-    typedef UnsignedLargeType unsigned_large_type;
-
-    // The signed_short_type must be the signed counterpart of unsigned_small_type.
-    typedef typename detail::integer_type_helper<std::numeric_limits<unsigned_small_type>::digits>::exact_signed_type signed_short_type;
+    using unsigned_small_type = UnsignedSmallType;
+    using unsigned_large_type = UnsignedLargeType;
 
     // Define a fixed-length data array with four data elements of type unsigned_small_type.
     // This data array contains the internal representation of unsigned_long_long_long.
-    typedef std::array<unsigned_small_type, 4U> data_array_type;
+    using data_array_type = ::std::array<unsigned_small_type, 4U>;
+
+    data_array_type m_data { };
+
+  public:
+    // The signed_short_type must be the signed counterpart of unsigned_small_type.
+    using signed_short_type = typename detail::integer_type_helper<std::numeric_limits<unsigned_small_type>::digits>::exact_signed_type;
 
     // The types of unsigned_large_type and unsigned_small_type must be unsigned.
     static_assert(   (std::numeric_limits<unsigned_small_type>::is_signed == false)
@@ -740,12 +743,10 @@
           data_array_type&  representation()       { return m_data; }
 
   protected:
-    data_array_type m_data;
-
     unsigned_long_long_long(const unsigned_small_type& t0,
                             const unsigned_small_type& t1,
                             const unsigned_small_type& t2,
-                            const unsigned_small_type& t3) : m_data( {{ t0, t1, t2, t3 }} ) { }
+                            const unsigned_small_type& t3) : m_data( { t0, t1, t2, t3 } ) { }
 
     // Utility functions for extracting lo-unsigned_small_type and hi-unsigned_small_type from unsigned_large_type.
     static unsigned_small_type lo_part(const unsigned_large_type& lt) { return unsigned_small_type(lt); }
@@ -1008,8 +1009,8 @@
         //    else
         //      set q^ = (u[j] * b + u[j+1]) / v[1]
 
-        const std::uint_fast8_t uj (sig_limbs_u - j);
-        const std::uint_fast8_t vj0(sig_limbs_v - 1U);
+        const std::uint_fast8_t uj (static_cast<std::uint_fast8_t>(sig_limbs_u - j));
+        const std::uint_fast8_t vj0(static_cast<std::uint_fast8_t>(sig_limbs_v - 1U));
 
         const unsigned_large_type u_j_j1((unsigned_large_type(uu[uj]) << std::numeric_limits<unsigned_small_type>::digits) + uu[uj - 1U]);
 
