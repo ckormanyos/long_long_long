@@ -34,6 +34,7 @@ jobs:
           git submodule update --init libs/assert
           git submodule update --init libs/bind
           git submodule update --init libs/config
+          git submodule update --init libs/container
           git submodule update --init libs/core
           git submodule update --init libs/describe
           git submodule update --init libs/iterator
