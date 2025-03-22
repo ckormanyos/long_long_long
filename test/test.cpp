@@ -12,9 +12,6 @@
 
 #define LONG_LONG_LONG_TEST_CASE(name) auto name() -> void
 
-#define BOOST_TEST_MODULE test_long_long_long
-#define BOOST_LIB_DIAGNOSTIC
-
 #if defined(__GNUC__)
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wsign-conversion"
@@ -34,18 +31,18 @@
 #include <sstream>
 #include <string>
 
-typedef math::lll::unsigned_long_long_long<std::uint32_t> uint128_type;
-typedef math::lll::signed_long_long_long  <std::uint32_t>  int128_type;
+using uint128_type = ::math::lll::unsigned_long_long_long<std::uint32_t>;
+using  int128_type = ::math::lll::signed_long_long_long  <std::uint32_t>;
 
-typedef boost::multiprecision::uint128_t unsigned_control_type;
-typedef boost::multiprecision::int128_t    signed_control_type;
+using unsigned_control_type = ::boost::multiprecision::uint128_t;
+using   signed_control_type = ::boost::multiprecision::int128_t;
 
 namespace
 {
   #if defined(_DEBUG)
-    const std::uint_fast32_t test_case_count = UINT32_C(0x00000200);
+    constexpr std::uint_fast32_t test_case_count = UINT32_C(0x00000200);
   #else
-    const std::uint_fast32_t test_case_count = UINT32_C(0x00020000);
+    constexpr std::uint_fast32_t test_case_count = UINT32_C(0x00020000);
   #endif
 
   using random_generator_type = ::std::mt19937_64;
@@ -79,8 +76,6 @@ namespace
     return strm.str();
   }
 }
-
-#include <math/long_long_long/long_long_long.h>
 
 LONG_LONG_LONG_TEST_CASE(test_unsigned_example)
 {
