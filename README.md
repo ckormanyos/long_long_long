@@ -1,12 +1,12 @@
 long_long_long
 ==================
 
-`ckormanyos/long_long_long` implements signed and unsigned integers consisting of four constituent parts
-such as a synthesized drop-in replacement for `uint128_t` or similar.
-
 This is a legacy project that preserves an old work.
 New designs should use [`ckormanyos/wide-integer`](https://github.com/ckormanyos/wide-integer)
 or [`boost::multiprecision`](https://github.com/boostorg/multiprecision) or similar.
+
+`ckormanyos/long_long_long` implements signed and unsigned integers consisting of four constituent parts
+such as a synthesized drop-in replacement for `uint128_t` or similar.
 
 Use the C++ templates `unsigned_long_long_long` and `signed_long_long_long`
 to create unsigned or signed _long_ _long_ _long_ integers such as a drop-in replacement
