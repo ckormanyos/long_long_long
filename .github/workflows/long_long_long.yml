@@ -1,0 +1,65 @@
+# ------------------------------------------------------------------------------
+#  Copyright Christopher Kormanyos 2025.
+#  Distributed under the Boost Software License,
+#  Version 1.0. (See accompanying file LICENSE_1_0.txt
+#  or copy at http://www.boost.org/LICENSE_1_0.txt)
+# ------------------------------------------------------------------------------
+
+name: long_long_long
+on:
+  push:
+    branches:
+      - '**'
+  pull_request:
+jobs:
+  ubuntu-native:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    strategy:
+      fail-fast: false
+      matrix:
+        compiler: [ g++, clang++ ]
+        standard: [ c++14, c++20 ]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: '0'
+      - name: clone-submods-bootstrap-headers-boost-develop
+        run: |
+          git clone -b develop --depth 1 https://github.com/boostorg/boost.git ../boost-root
+          cd ../boost-root
+          git submodule update --init tools
+          git submodule update --init libs/assert
+          git submodule update --init libs/bind
+          git submodule update --init libs/config
+          git submodule update --init libs/core
+          git submodule update --init libs/describe
+          git submodule update --init libs/math
+          git submodule update --init libs/mpl
+          git submodule update --init libs/multiprecision
+          git submodule update --init libs/numeric
+          git submodule update --init libs/predef
+          git submodule update --init libs/preprocessor
+          git submodule update --init libs/random
+          git submodule update --init libs/range
+          git submodule update --init libs/static_assert
+          git submodule update --init libs/test
+          git submodule update --init libs/throw_exception
+          git submodule update --init libs/unordered
+          ./bootstrap.sh
+          ./b2 headers
+      - name: ubuntu-native
+        run: |
+          echo "query GCC version"
+          ${{ matrix.compiler }} -v
+          echo "build the test program"
+          echo
+          ${{ matrix.compiler }} -O3 -std=${{ matrix.standard }} -Wall -Wextra -Wpedantic -Wconversion -Wsign-conversion -O3 -I. -I../boost-root test/test.cpp -o test.exe
+          echo "verify the existence of the built test program"
+          echo
+          ls -la ./test.exe
+          echo "run the test program"
+          echo
+          ./test.exe
