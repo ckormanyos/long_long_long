@@ -38,6 +38,7 @@ jobs:
           git submodule update --init libs/describe
           git submodule update --init libs/iterator
           git submodule update --init libs/math
+          git submodule update --init libs/mp11
           git submodule update --init libs/mpl
           git submodule update --init libs/multiprecision
           git submodule update --init libs/numeric
