@@ -179,10 +179,10 @@
     // Unary arithmetic operators.
     unsigned_long_long_long& operator+=(const unsigned_long_long_long& v)
     {
-      const unsigned_large_type res0(unsigned_large_type(m_data[0U]) + v.m_data[0U]);
-      const unsigned_large_type res1(unsigned_large_type(m_data[1U]) + v.m_data[1U] + hi_part(res0));
-      const unsigned_large_type res2(unsigned_large_type(m_data[2U]) + v.m_data[2U] + hi_part(res1));
-      const unsigned_large_type res3(unsigned_large_type(m_data[3U]) + v.m_data[3U] + hi_part(res2));
+      const unsigned_large_type res0(static_cast<unsigned_large_type>(m_data[0U]) + v.m_data[0U]);
+      const unsigned_large_type res1(static_cast<unsigned_large_type>(m_data[1U]) + v.m_data[1U] + hi_part(res0));
+      const unsigned_large_type res2(static_cast<unsigned_large_type>(m_data[2U]) + v.m_data[2U] + hi_part(res1));
+      const unsigned_large_type res3(static_cast<unsigned_large_type>(m_data[3U]) + v.m_data[3U] + hi_part(res2));
 
       m_data[0U] = lo_part(res0);
       m_data[1U] = lo_part(res1);
@@ -194,10 +194,10 @@
 
     unsigned_long_long_long& operator-=(const unsigned_long_long_long& v)
     {
-      const unsigned_large_type res0(unsigned_large_type(m_data[0U]) - v.m_data[0U]);
-      const unsigned_large_type res1(unsigned_large_type(m_data[1U]) - v.m_data[1U] - unsigned_small_type((hi_part(res0) != unsigned_small_type(0U)) ? 1U : 0U));
-      const unsigned_large_type res2(unsigned_large_type(m_data[2U]) - v.m_data[2U] - unsigned_small_type((hi_part(res1) != unsigned_small_type(0U)) ? 1U : 0U));
-      const unsigned_large_type res3(unsigned_large_type(m_data[3U]) - v.m_data[3U] - unsigned_small_type((hi_part(res2) != unsigned_small_type(0U)) ? 1U : 0U));
+      const unsigned_large_type res0(static_cast<unsigned_large_type>(m_data[0U]) - v.m_data[0U]);
+      const unsigned_large_type res1(static_cast<unsigned_large_type>(m_data[1U]) - v.m_data[1U] - unsigned_small_type((hi_part(res0) != unsigned_small_type(0U)) ? 1U : 0U));
+      const unsigned_large_type res2(static_cast<unsigned_large_type>(m_data[2U]) - v.m_data[2U] - unsigned_small_type((hi_part(res1) != unsigned_small_type(0U)) ? 1U : 0U));
+      const unsigned_large_type res3(static_cast<unsigned_large_type>(m_data[3U]) - v.m_data[3U] - unsigned_small_type((hi_part(res2) != unsigned_small_type(0U)) ? 1U : 0U));
 
       m_data[0U] = lo_part(res0);
       m_data[1U] = lo_part(res1);
@@ -403,10 +403,10 @@
     unsigned_long_long_long& add_ulll_ushort(const unsigned_small_type& t)
     {
       // Add the data elements with carry.
-      const unsigned_large_type res0(unsigned_large_type(m_data[0U]) + t);
-      const unsigned_large_type res1(unsigned_large_type(m_data[1U]) + hi_part(res0));
-      const unsigned_large_type res2(unsigned_large_type(m_data[2U]) + hi_part(res1));
-      const unsigned_large_type res3(unsigned_large_type(m_data[3U]) + hi_part(res2));
+      const unsigned_large_type res0(static_cast<unsigned_large_type>(m_data[0U]) + t);
+      const unsigned_large_type res1(static_cast<unsigned_large_type>(m_data[1U]) + hi_part(res0));
+      const unsigned_large_type res2(static_cast<unsigned_large_type>(m_data[2U]) + hi_part(res1));
+      const unsigned_large_type res3(static_cast<unsigned_large_type>(m_data[3U]) + hi_part(res2));
 
       m_data[0U] = lo_part(res0);
       m_data[1U] = lo_part(res1);
@@ -419,10 +419,10 @@
     unsigned_long_long_long& sub_ulll_ushort(const unsigned_small_type& t)
     {
       // Subtract the data elements with borrow.
-      const unsigned_large_type res0(unsigned_large_type(m_data[0U]) - t);
-      const unsigned_large_type res1(unsigned_large_type(m_data[1U]) - unsigned_small_type((hi_part(res0) != unsigned_small_type(0U)) ? 1U : 0U));
-      const unsigned_large_type res2(unsigned_large_type(m_data[2U]) - unsigned_small_type((hi_part(res1) != unsigned_small_type(0U)) ? 1U : 0U));
-      const unsigned_large_type res3(unsigned_large_type(m_data[3U]) - unsigned_small_type((hi_part(res2) != unsigned_small_type(0U)) ? 1U : 0U));
+      const unsigned_large_type res0(static_cast<unsigned_large_type>(m_data[0U]) - t);
+      const unsigned_large_type res1(static_cast<unsigned_large_type>(m_data[1U]) - unsigned_small_type((hi_part(res0) != unsigned_small_type(0U)) ? 1U : 0U));
+      const unsigned_large_type res2(static_cast<unsigned_large_type>(m_data[2U]) - unsigned_small_type((hi_part(res1) != unsigned_small_type(0U)) ? 1U : 0U));
+      const unsigned_large_type res3(static_cast<unsigned_large_type>(m_data[3U]) - unsigned_small_type((hi_part(res2) != unsigned_small_type(0U)) ? 1U : 0U));
 
       m_data[0U] = lo_part(res0);
       m_data[1U] = lo_part(res1);
@@ -434,12 +434,12 @@
 
     unsigned_long_long_long& mul_ulll_ushort(const unsigned_small_type& t)
     {
-      const unsigned_large_type cD = m_data[1U] * unsigned_large_type(t);
-      const unsigned_large_type bD = m_data[2U] * unsigned_large_type(t);
+      const unsigned_large_type cD = m_data[1U] * static_cast<unsigned_large_type>(t);
+      const unsigned_large_type bD = m_data[2U] * static_cast<unsigned_large_type>(t);
 
-      const unsigned_large_type res0(m_data[0U] * unsigned_large_type(t));
-      const unsigned_large_type res1(unsigned_large_type(lo_part(cD)) + hi_part(res0));
-      const unsigned_large_type res2(unsigned_large_type(lo_part(bD)) + hi_part(cD) + hi_part(res1));
+      const unsigned_large_type res0(m_data[0U] * static_cast<unsigned_large_type>(t));
+      const unsigned_large_type res1(static_cast<unsigned_large_type>(lo_part(cD)) + hi_part(res0));
+      const unsigned_large_type res2(static_cast<unsigned_large_type>(lo_part(bD)) + hi_part(cD) + hi_part(res1));
 
       m_data[3U] = lo_part(m_data[3U] * unsigned_large_type(t)) + hi_part(bD) + hi_part(res2);
 
@@ -568,7 +568,7 @@
         return true;
       }
 
-      unsigned_long_long_long::unsigned_small_type unsigned_short_base(1U);
+      unsigned_small_type unsigned_short_base(1U);
 
       // Base  2: String length expected to have length my_digits       + '\0'.
       // Base 10: String length expected to have length my_digits10 + 1 + '\0'.
@@ -587,7 +587,7 @@
           offset = (unsigned_long_long_long::my_digits10 + 1) + 1;
 
           // Initialize a sub base used for the decimal digit extractions.
-          for(i = 0; i < std::numeric_limits<unsigned_long_long_long::unsigned_small_type>::digits10; ++i)
+          for(i = 0; i < std::numeric_limits<unsigned_small_type>::digits10; ++i)
           {
             unsigned_short_base *= 10U;
           }
@@ -607,7 +607,7 @@
       // since the user might have trimmed the call to the maximum expected
       // length of the unsigned_long_long_long at hand, whereas the extraction algorithm
       // below is based on the maximum allowed length.
-      char local[static_cast<std::size_t>(16 * (unsigned_long_long_long::my_digits / 16) + 16)];
+      char local[static_cast<std::size_t>(16 * (my_digits / 16) + 16)];
 
       const int char_a((!upper) ? int('a') : int('A'));
 
@@ -633,7 +633,7 @@
           default:
             {
               // Extract the digits using a sub-loop.
-              unsigned_long_long_long::unsigned_small_type u_rem;
+              unsigned_small_type u_rem;
               u.div_ulll_ushort(unsigned_short_base, &u_rem);
 
               if(u.is_zero())
@@ -641,7 +641,7 @@
                 // If u is 0, then we only need the non-zero digits of data.
                 while(u_rem != 0U)
                 {
-                  const unsigned_long_long_long::unsigned_small_type digit(u_rem % 10U);
+                  const unsigned_small_type digit(u_rem % 10U);
 
                   u_rem /= 10U;
 
@@ -654,9 +654,9 @@
               {
                 // Here u is not zero, we need all of the digits
                 // of data including the zero digits.
-                for(i = 0; i < std::numeric_limits<unsigned_long_long_long::unsigned_small_type>::digits10; ++i)
+                for(i = 0; i < std::numeric_limits<unsigned_small_type>::digits10; ++i)
                 {
-                  const unsigned_long_long_long::unsigned_small_type next_digit(u_rem % 10U);
+                  const unsigned_small_type next_digit(u_rem % 10U);
 
                   u_rem /= 10U;
 
@@ -671,20 +671,20 @@
           case detail::base_type_hex:
             {
               // Extract the digits.
-              unsigned_long_long_long::unsigned_small_type data = u.crepresentation()[0U];
+              unsigned_small_type data = u.crepresentation()[0U];
 
-              u >>= std::numeric_limits<unsigned_long_long_long::unsigned_small_type>::digits;
+              u >>= std::numeric_limits<unsigned_small_type>::digits;
 
               if(u.is_zero())
               {
                 while(data != 0U)
                 {
                   // If u is 0, then we only need the non-zero digits of data.
-                  const unsigned_long_long_long::unsigned_small_type nibble = (data & 0xFU);
+                  const unsigned_small_type nibble = (data & 0xFU);
 
                   data >>= 4;
 
-                  *(local + std::uint_fast8_t(offset - count)) = char(nibble + (nibble < 0xAU ? char('0') : char(char_a - 10)));
+                  *(local + std::uint_fast8_t(offset - count)) = char(nibble + unsigned_small_type(nibble < 0xAU ? char('0') : char(char_a - 10)));
 
                   ++count;
                 }
@@ -693,13 +693,13 @@
               {
                 // Here u is not zero, we need all of the digits
                 // of data including the zero digits.
-                for(i = 0; i < std::numeric_limits<unsigned_long_long_long::unsigned_small_type>::digits / 4; ++i)
+                for(i = 0; i < std::numeric_limits<unsigned_small_type>::digits / 4; ++i)
                 {
-                  const unsigned_long_long_long::unsigned_small_type nibble = (data & 0xFU);
+                  const unsigned_small_type nibble = (data & 0xFU);
 
                   data >>= 4;
 
-                  *(local + std::uint_fast8_t(offset - count)) = char(nibble + ((nibble < 0xAU) ? char('0') : char(char_a - 10)));
+                  *(local + std::uint_fast8_t(offset - count)) = char(nibble + unsigned_small_type((nibble < 0xAU) ? char('0') : char(char_a - 10)));
 
                   ++count;
                 }
