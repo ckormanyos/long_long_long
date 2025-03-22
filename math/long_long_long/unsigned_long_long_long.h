@@ -607,7 +607,7 @@
       // since the user might have trimmed the call to the maximum expected
       // length of the unsigned_long_long_long at hand, whereas the extraction algorithm
       // below is based on the maximum allowed length.
-      char local[16 * (unsigned_long_long_long::my_digits / 16) + 16];
+      char local[static_cast<std::size_t>(16 * (unsigned_long_long_long::my_digits / 16) + 16)];
 
       const int char_a((!upper) ? int('a') : int('A'));
 
