@@ -897,8 +897,8 @@ LONG_LONG_LONG_TEST_CASE(test_signed_long_long_long)
 auto main() -> int
 {
   test_unsigned_example();
-  test_signed_long_long_long();
   test_unsigned_long_long_long();
+  test_signed_long_long_long();
 
   return boost::report_errors();
 }
