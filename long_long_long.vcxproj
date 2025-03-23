@@ -136,11 +136,7 @@
     <ClCompile Include="test\test.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="math\long_long_long\detail\long_long_long_detail.h" />
     <ClInclude Include="math\long_long_long\long_long_long.h" />
-    <ClInclude Include="math\long_long_long\long_long_long_io.h" />
-    <ClInclude Include="math\long_long_long\signed_long_long_long.h" />
-    <ClInclude Include="math\long_long_long\unsigned_long_long_long.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

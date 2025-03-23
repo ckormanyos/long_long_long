@@ -9,10 +9,11 @@ or [`boost::multiprecision`](https://github.com/boostorg/multiprecision) or simi
 such as a synthesized drop-in replacement for `uint128_t` or similar.
 
 Use the C++ templates `unsigned_long_long_long` and `signed_long_long_long`
-to create unsigned or signed _long_ _long_ _long_ integers such as a drop-in replacement
-for `uint128_t` (see sample below).
+to create unsigned or signed _long_ _long_ _long_ integers (i.e., like `uint128_t`).
+See the detailed example below.
 
-The `unsigned_long_long_long` and `signed_long_long_long` are located in `namespace` `math::lll`.
+The `unsigned_long_long_long` and `signed_long_long_long` template classes
+are located in `namespace` `math::lll`.
 
 ```cpp
 #include <math/long_long_long/long_long_long.h>
