@@ -1766,7 +1766,7 @@
     // Upper case or lower case?
     const bool upper = ((flags & std::ios::uppercase) != 0);
 
-    using signed_long_long_long_type = unsigned_long_long_long<UnsignedSmallType, UnsignedLargeType>;
+    using signed_long_long_long_type = signed_long_long_long<UnsignedSmallType, UnsignedLargeType>;
 
     // Declare variables for the left-justified character string and the sign.
     char sign;
