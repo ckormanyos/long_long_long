@@ -1713,7 +1713,7 @@
     char p_str[16 * (std::numeric_limits<unsigned_long_long_long_type>::digits10 / 16) + 16];
 
     // Get the left-justified character string and the sign.
-    const bool result_to_string_is_ok { unsigned_long_long_long_type::to_string(u, p_str, 0, base, upper) };
+    const bool result_to_string_is_ok { unsigned_long_long_long_type::to_string(u, p_str, nullptr, base, upper) };
 
     if(result_to_string_is_ok)
     {
@@ -1757,23 +1757,25 @@
   std::ostream& operator<<(std::ostream& os, const signed_long_long_long<UnsignedSmallType, UnsignedLargeType>& n)
   {
     // Get the output stream flags.
-    const std::ios::fmtflags flags = os.flags();
+    const std::ios::fmtflags flags { os.flags() };
 
     // Which base? If both std::ios::dec as well as std::ios::hex
     // are set, then decimal std::ios::dec is assumed.
-    const detail::base_type base = (((flags & std::ios::dec) != 0) ? detail::base_type_dec : detail::base_type_hex);
+    const detail::base_type base { (((flags & std::ios::dec) != 0) ? detail::base_type_dec : detail::base_type_hex) };
 
     // Upper case or lower case?
     const bool upper = ((flags & std::ios::uppercase) != 0);
 
+    using signed_long_long_long_type = signed_long_long_long<UnsignedSmallType, UnsignedLargeType>;
+
     // Declare variables for the left-justified character string and the sign.
     char sign;
-    char str[16 * (std::numeric_limits<signed_long_long_long<UnsignedSmallType, UnsignedLargeType>>::digits10 / 16) + 16];
+    char p_str[16 * (std::numeric_limits<signed_long_long_long_type>::digits10 / 16) + 16];
 
     // Get the left-justified character string and the sign.
-    const bool b_str = signed_long_long_long<UnsignedSmallType, UnsignedLargeType>::to_string(n, str, &sign, base, upper);
+    const bool result_to_string_is_ok { signed_long_long_long_type::to_string(n, p_str, &sign, base, upper) };
 
-    if(b_str)
+    if(result_to_string_is_ok)
     {
       // Is it decimal base?
       if(base == detail::base_type_dec)
@@ -1794,7 +1796,7 @@
         }
       }
 
-      return (os << std::string(str));
+      return (os << p_str);
     }
     else
     {

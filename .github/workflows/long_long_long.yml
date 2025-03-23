@@ -51,7 +51,7 @@ jobs:
           ${{ matrix.compiler }} -v
           echo "build the test program"
           echo
-          ${{ matrix.compiler }} -O3 -std=${{ matrix.standard }} -Wall -Wextra -Wpedantic -Wconversion -Wsign-conversion -O3 -I. -I../boost-root test/test.cpp -o test.exe
+          ${{ matrix.compiler }} -O3 -std=${{ matrix.standard }} -Wall -Wextra -Wpedantic -Wconversion -Wsign-conversion -Wshadow -Wundef -Wunused-parameter -Wuninitialized -Wunreachable-code -Winit-self -Wzero-as-null-pointer-constant -O3 -I. -I../boost-root test/test.cpp -o test.exe
           echo "verify the existence of the built test program"
           echo
           ls -la ./test.exe
