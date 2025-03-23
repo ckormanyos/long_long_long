@@ -1,6 +1,15 @@
 long_long_long
 ==================
 
+<p align="center">
+    <a href="https://github.com/ckormanyos/long_long_long/actions">
+        <img src="https://github.com/ckormanyos/long_long_long/actions/workflows/long_long_long.yml/badge.svg" alt="Build Status"></a>
+    <a href="https://github.com/ckormanyos/wide-integer/blob/master/LICENSE">
+        <img src="https://img.shields.io/badge/license-BSL%201.0-blue.svg" alt="Boost Software License 1.0"></a>
+    <a href="https://godbolt.org/z/Pfn7bnsd4" alt="godbolt">
+        <img src="https://img.shields.io/badge/try%20it%20on-godbolt-green" /></a>
+</p>
+
 This is a legacy project that preserves an old work.
 New designs should use [`ckormanyos/wide-integer`](https://github.com/ckormanyos/wide-integer)
 or [`boost::multiprecision`](https://github.com/boostorg/multiprecision) or similar.
@@ -17,6 +26,8 @@ are located in `namespace` `math::lll`.
 
 ```cpp
 #include <math/long_long_long/long_long_long.h>
+
+#include <iostream>
 
 auto main() -> int
 {
@@ -38,6 +49,9 @@ auto main() -> int
         uint128_t { UINT64_C(1853020188851841) }
       * uint128_t { UINT64_C(1853020188851841) }
     };
+
+  // 3433683820292512484657849089281
+  std::cout << "p3: " << p3 << std::endl;
 
   return (p3 == ctrl) ? 0 : -1;
 }
